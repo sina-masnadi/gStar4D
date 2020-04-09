@@ -1,5 +1,6 @@
-cmake_minimum_required(VERSION 2.8)
-find_package(CUDA QUIET REQUIRED)
+cmake_minimum_required(VERSION 3.15)
+project(gstar4d)
+find_package(CUDA REQUIRED 9.1)
 set(CMAKE_BUILD_TYPE Release)
 set(
     CUDA_NVCC_FLAGS
