@@ -1,51 +1,77 @@
 cmake_minimum_required(VERSION 3.15)
 project(gstar4d)
 find_package(CUDA REQUIRED 9.1)
+set(CMAKE_C_COMPILER /usr/bin/gcc-6)
 set(CMAKE_BUILD_TYPE Release)
+set(INCLUDE_INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/include)
 set(
-    CUDA_NVCC_FLAGS
-    ${CUDA_NVCC_FLAGS}; -gencode arch=compute_35,code=sm_35
-    )
+        CUDA_NVCC_FLAGS
+        ${CUDA_NVCC_FLAGS}; -gencode arch=compute_61,code=sm_61
+)
 include_directories(
-    GDelaunay/Common
-    GDelaunay/GDelaunay
-    GDelaunay/Main
-    GDelaunay/PBA
-    )
+        GDelaunay/Common
+        GDelaunay/GDelaunay
+        GDelaunay/Main
+        GDelaunay/PBA
+)
+set(GSTAR4D_HEADER_FILES
+        GDelaunay/Common/Config.h
+        GDelaunay/Common/CudaWrapper.h
+        GDelaunay/Common/DtRandom.h
+        GDelaunay/Common/Geometry.h
+        GDelaunay/Common/PerfTimer.h
+        GDelaunay/Common/STLWrapper.h
+        GDelaunay/Common/ThrustWrapper.h
+        GDelaunay/GDelaunay/GDelaunay.h
+        GDelaunay/GDelaunay/GDelCommon.h
+        GDelaunay/GDelaunay/GDelData.h
+        GDelaunay/GDelaunay/GDelHost.h
+        GDelaunay/GDelaunay/GDelKernels.h
+        GDelaunay/GDelaunay/GDelPredDevice.h
+        GDelaunay/GDelaunay/GDelShewchukDevice.h
+        GDelaunay/Main/Application.h
+        GDelaunay/PBA/pba3D.h
+        GDelaunay/PBA/pba3DKernel.h
+        GDelaunay/PBA/Pba.h
+        )
 set(GSTAR4D_SOURCE_FILES
-    GDelaunay/Common/Config.h
-    GDelaunay/Common/CudaWrapper.h
-    GDelaunay/Common/DtRandom.cpp
-    GDelaunay/Common/DtRandom.h
-    GDelaunay/Common/Geometry.cu
-    GDelaunay/Common/Geometry.h
-    GDelaunay/Common/PerfTimer.h
-    GDelaunay/Common/predicates.c
-    GDelaunay/Common/STLWrapper.h
-    GDelaunay/Common/ThrustWrapper.h
-    GDelaunay/GDelaunay/GDelaunay.cpp
-    GDelaunay/GDelaunay/GDelaunay.h
-    GDelaunay/GDelaunay/GDelCommon.cu
-    GDelaunay/GDelaunay/GDelCommon.h
-    GDelaunay/GDelaunay/GDelData.cu
-    GDelaunay/GDelaunay/GDelData.h
-    GDelaunay/GDelaunay/GDelHost.cu
-    GDelaunay/GDelaunay/GDelHost.h
-    GDelaunay/GDelaunay/GDelKernels.cu
-    GDelaunay/GDelaunay/GDelKernels.h
-    GDelaunay/GDelaunay/GDelPredDevice.h
-    GDelaunay/GDelaunay/GDelPredKernels.cu
-    GDelaunay/GDelaunay/GDelShewchukDevice.h
-    GDelaunay/Main/Application.cpp
-    GDelaunay/Main/Application.h
-    GDelaunay/Main/Main.cpp
-    GDelaunay/PBA/pba3D.h
-    GDelaunay/PBA/pba3DHost.cu
-    GDelaunay/PBA/pba3DKernel.h
-    GDelaunay/PBA/Pba.cu
-    GDelaunay/PBA/Pba.h
-    )
+        GDelaunay/Common/Config.h
+        GDelaunay/Common/CudaWrapper.h
+        GDelaunay/Common/DtRandom.cpp
+        GDelaunay/Common/DtRandom.h
+        GDelaunay/Common/Geometry.cu
+        GDelaunay/Common/Geometry.h
+        GDelaunay/Common/PerfTimer.h
+        GDelaunay/Common/predicates.c
+        GDelaunay/Common/STLWrapper.h
+        GDelaunay/Common/ThrustWrapper.h
+        GDelaunay/GDelaunay/GDelaunay.cpp
+        GDelaunay/GDelaunay/GDelaunay.h
+        GDelaunay/GDelaunay/GDelCommon.cu
+        GDelaunay/GDelaunay/GDelCommon.h
+        GDelaunay/GDelaunay/GDelData.cu
+        GDelaunay/GDelaunay/GDelData.h
+        GDelaunay/GDelaunay/GDelHost.cu
+        GDelaunay/GDelaunay/GDelHost.h
+        GDelaunay/GDelaunay/GDelKernels.cu
+        GDelaunay/GDelaunay/GDelKernels.h
+        GDelaunay/GDelaunay/GDelPredDevice.h
+        GDelaunay/GDelaunay/GDelPredKernels.cu
+        GDelaunay/GDelaunay/GDelShewchukDevice.h
+        GDelaunay/Main/Application.cpp
+        GDelaunay/Main/Application.h
+        GDelaunay/Main/Main.cpp
+        GDelaunay/PBA/pba3D.h
+        GDelaunay/PBA/pba3DHost.cu
+        GDelaunay/PBA/pba3DKernel.h
+        GDelaunay/PBA/Pba.cu
+        GDelaunay/PBA/Pba.h
+        )
+
 cuda_add_executable(
-    gstar4d
-    ${GSTAR4D_SOURCE_FILES}
-    )
+        gstar4d
+        ${GSTAR4D_SOURCE_FILES}
+)
+
+install(TARGETS gstar4d DESTINATION bin)
+install(FILES ${GSTAR4D_HEADER_FILES} DESTINATION ${INCLUDE_INSTALL_DIR}/libgstar4d)
