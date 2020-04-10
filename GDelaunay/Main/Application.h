@@ -44,7 +44,7 @@ class Application
 public:
     void doRun();
 
-private:
+public:
     Point3HVec  _pointVec;
     Point3HVec  _scaledVec;
 
