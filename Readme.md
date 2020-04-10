@@ -1,3 +1,8 @@
+This is a fork of gStar4D by [Ashwin](https://github.com/ashwin).
+There are modification to this code to use it as an external project in other projects using CMake.
+
+To use this code in your CMake projects follow the example/CMakeLists.txt file.
+
 gStar4D
 =======
 
@@ -16,11 +21,13 @@ times over the 3D Delaunay triangulator of CGAL.
 
 Setup
 =====
-
-This project has been primarily tested on Windows 7 64-bit OS using Visual
-Studio 2008 and CUDA 4.0.
-This is a workstation with Intel i7 2600K CPU and
-NVIDIA GTX 580 GPU.
+Test System:
+- Ubuntu 18.04
+- Cuda 9.1
+- CMake 3.17
+- gcc-6
+- Intel i7 8700K
+- NVIDIA 1080Ti
 
 On Windows
 ----------
@@ -39,14 +46,14 @@ To build and execute using CMake:
     $ cd gstar4d
     $ mkdir build
     $ cd build
-    $ cmake ..
+    $ cmake .. -DCMAKE_C_COMPILER=/usr/bin/gcc-6
     $ make
     $ ./gstar4d --help
 
 Documentation
 =============
 
-Chapter 6 of my [PhD thesis](gdel3d_thesis.pdf) describes the details of the
+Chapter 6 of Ashwin's [PhD thesis](gdel3d_thesis.pdf) describes the details of the
 gStar4D algorithm.
 
 Reference
