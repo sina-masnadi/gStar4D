@@ -60,7 +60,7 @@ set(GSTAR4D_SOURCE_FILES
         GDelaunay/GDelaunay/GDelShewchukDevice.h
         GDelaunay/Main/Application.cpp
         GDelaunay/Main/Application.h
-        GDelaunay/Main/Main.cpp
+#        GDelaunay/Main/Main.cpp
         GDelaunay/PBA/pba3D.h
         GDelaunay/PBA/pba3DHost.cu
         GDelaunay/PBA/pba3DKernel.h
@@ -68,10 +68,10 @@ set(GSTAR4D_SOURCE_FILES
         GDelaunay/PBA/Pba.h
         )
 
-cuda_add_executable(
+CUDA_ADD_LIBRARY(
         gstar4d
         ${GSTAR4D_SOURCE_FILES}
 )
 
 install(TARGETS gstar4d DESTINATION bin)
-install(FILES ${GSTAR4D_HEADER_FILES} DESTINATION ${INCLUDE_INSTALL_DIR}/libgstar4d)
+install(FILES ${GSTAR4D_SOURCE_FILES} DESTINATION ${INCLUDE_INSTALL_DIR}/libgstar4d)
