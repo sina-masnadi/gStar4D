@@ -40,11 +40,12 @@ DAMAGE.
 #include "Geometry.h"
 #include "Config.h"
 
+Config& getConfig();
+
 class Application
 {
 public:
     void doRun();
-    Config& getConfig();
 
 public:
     Point3HVec  _pointVec;
