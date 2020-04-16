@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.15)
+set(CMAKE_C_COMPILER "/usr/bin/gcc-6")
+set(CMAKE_CXX_COMPILER "/usr/bin/gcc-6")
 project(gstar4d)
 find_package(CUDA REQUIRED 9.1)
-set(CMAKE_C_COMPILER /usr/bin/gcc-6)
 set(CMAKE_BUILD_TYPE Release)
 set(INCLUDE_INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/include)
 set(
