@@ -602,4 +602,8 @@ RealType Application::_scalePoint( RealType gridWidth, float minVal, float maxVa
     return inVal;
 }
 
+Config &Application::getConfig() {
+    return this->_config;
+}
+
 ////////////////////////////////////////////////////////////////////////////////

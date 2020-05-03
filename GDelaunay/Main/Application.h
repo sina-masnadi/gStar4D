@@ -37,12 +37,16 @@ DAMAGE.
 #pragma once
 
 // Project
-#include "Geometry.h"
+#include <Config.h>
+#include <Geometry.h>
 
 class Application
 {
 public:
     void doRun();
+
+    Config _config;
+
     Point3HVec  _pointVec;
     Point3HVec  _scaledVec;
 
@@ -52,6 +56,7 @@ public:
     RealType _scalePoint( RealType, float, float, RealType );
     void makePoints();
     void readPoints();
+    Config& getConfig();
 };
 
 ////////////////////////////////////////////////////////////////////////////////
