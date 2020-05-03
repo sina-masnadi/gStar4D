@@ -38,6 +38,7 @@ DAMAGE.
 #include "Application.h"
 
 // Project
+#include "Config.h"
 #include "DtRandom.h"
 #include "GDelaunay.h"
 #include "STLWrapper.h"
@@ -599,11 +600,6 @@ RealType Application::_scalePoint( RealType gridWidth, float minVal, float maxVa
     inVal += 1.0f;
 
     return inVal;
-}
-
-Config& getConfig() {
-    static Config _config;
-    return _config;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

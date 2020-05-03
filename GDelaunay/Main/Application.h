@@ -38,16 +38,13 @@ DAMAGE.
 
 // Project
 #include "Geometry.h"
-#include "Config.h"
-
-Config& getConfig();
 
 class Application
 {
 public:
     void doRun();
 
-public:
+private:
     Point3HVec  _pointVec;
     Point3HVec  _scaledVec;
 
