@@ -606,4 +606,9 @@ Config &Application::getConfig() {
     return this->_config;
 }
 
+Config &getConfig() {
+    static Config _config;
+    return _config;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
