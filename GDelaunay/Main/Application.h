@@ -37,8 +37,8 @@ DAMAGE.
 #pragma once
 
 // Project
-#include <Config.h>
-#include <Geometry.h>
+#include "Config.h"
+#include "Geometry.h"
 
 class Application
 {
