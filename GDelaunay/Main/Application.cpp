@@ -219,7 +219,7 @@ void Application::_doRun
 
     // Generate points
     if (config._inFile) readPoints();
-    else if (config._inPoints) loadPoints(reinterpret_cast<Point3HVec &>(config._points));
+    else if (config._inPoints) loadPoints(config._points);
     else makePoints();
 
     if (config._outFile) {
@@ -238,7 +238,7 @@ void Application::_doRun
     // Compute Delaunay
     ////
 
-    assert((config._inFile == !_scaledVec.empty()) && "Scaled points should exist for points read from file!");
+//    assert((config._inFile == !_scaledVec.empty()) && "Scaled points should exist for points read from file!");
 
     HostTimer initTimer;
     HostTimer timerAll;
@@ -591,6 +591,7 @@ void Application::loadPoints(Point3HVec &points) {
             _pointVec.push_back(point);
         }
     }
+    points.clear();
 
     ////
     // Check for duplicate points

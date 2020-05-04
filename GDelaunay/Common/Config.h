@@ -37,6 +37,7 @@ DAMAGE.
 #pragma once
 
 #include "STLWrapper.h"
+#include "Geometry.h"
 
 enum Distribution
 {
@@ -77,7 +78,7 @@ public:
     bool            _doSorting;
     bool            _outFile;
     string          _outFilename;
-    int             _points;
+    thrust::host_vector <Point3> _points;
 };
 
 Config& getConfig();
