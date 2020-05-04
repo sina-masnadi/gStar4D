@@ -48,13 +48,13 @@ enum Distribution
 };
 
 const std::string DistStr[] =
-{
-    "Uniform",
-    "Gaussian",
-    "Ball",
-    "Sphere",
-    "Grid"
-};
+        {
+                "Uniform",
+                "Gaussian",
+                "Ball",
+                "Sphere",
+                "Grid"
+        };
 
 class Config
 {
@@ -70,12 +70,14 @@ public:
     bool            _logTiming;
     bool            _doCheck;
     bool            _inFile;
+    bool            _inPoints;
     string          _inFilename;
     int             _predThreadNum;
     int             _predBlockNum;
     bool            _doSorting;
     bool            _outFile;
     string          _outFilename;
+    int             _points;
 };
 
 Config& getConfig();

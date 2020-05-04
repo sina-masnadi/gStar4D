@@ -56,6 +56,7 @@ public:
     RealType _scalePoint( RealType, float, float, RealType );
     void makePoints();
     void readPoints();
+    void loadPoints(Point3HVec&);
     Config& getConfig();
 };
 
