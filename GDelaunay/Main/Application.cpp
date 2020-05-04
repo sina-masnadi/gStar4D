@@ -551,14 +551,6 @@ void Application::loadPoints(Point3HVec &points) {
     assert(_pointVec.empty() && "Input point vector not empty!");
 
     Config &config = getConfig();
-    ifstream inFile(config._inFilename.c_str());
-
-    if (!inFile) {
-        cout << "Error opening input file: " << config._inFilename << " !!!" << endl;
-        exit(1);
-    } else {
-        cout << "Reading from point file ..." << endl;
-    }
 
     ////
     // Read input points
